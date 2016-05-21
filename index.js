@@ -41,8 +41,23 @@ app.get('/users', (req,res) => {
 
 app.post('/users', (req,res) => {
   var p_name = req.body.name;
+  var p_email = req.body.email;
+  var p_country = req.body.country;
+  var p_age = req.body.age;
+  var p_gender = req.body.gender;
+  var p_language = req.body.language;
+  var p_gamelist = req.body.gamelist;
   var User = mongoose.model('User');
-  var newUser = new User({name: p_name});
+  var newUser = new User(
+    {
+      name: p_name,
+      email: p_email,
+      country: p_country,
+      age: p_age,
+      gender: p_gender,
+      language: p_language,
+      gamelist: p_gamelist
+    });
   newUser.save();
   res.sendStatus(200);
 });
