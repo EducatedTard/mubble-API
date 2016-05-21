@@ -31,7 +31,7 @@ var config = {
       name: 'mubble-express'
     },
     port: process.env.PORT || 3000,
-    db: 'mongodb://localhost/mubble-express-production',
+    db: 'mongodb://heroku_p5cp7djd:bgm9neln51uj3v0pd8iool167v@ds011963.mlab.com:11963/heroku_p5cp7djd',
     options: { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
                 replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } }
   }
