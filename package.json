@@ -10,8 +10,11 @@
     "start": "node index.js"
   },
   "dependencies": {
+    "body-parser": "^1.15.1",
     "ejs": "2.4.1",
-    "express": "4.13.3"
+    "express": "4.13.3",
+    "glob": "^7.0.3",
+    "mongoose": "^4.4.17"
   },
   "repository": {
     "type": "git",
