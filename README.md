@@ -1,39 +1,76 @@
-# node-js-getting-started
+# Mubble-API
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+## API
 
-This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+* POST /search
 
-## Running Locally
+        body: {
+          id,
+          filters
+        }
+      returns a list of users
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
+* POST /users
 
-```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
-```
+      create new user
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+* UPDATE /users/:id
 
-## Deploying to Heroku
+      update user
 
-```
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
-or
+* GET /users/:id
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+      returns the specified user
 
-## Documentation
+* GET /games
 
-For more information about using Node.js on Heroku, see these Dev Center articles:
+        returns all the games
 
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
+* GET /games/:id
+
+        returns specified game
+
+
+## Database
+
+* user:
+
+        {
+                id,
+                name,
+                email,
+                country,
+                age,
+                gender,
+                language,
+                gameList: [game]
+                description,
+                image
+        }
+
+* conversation:
+
+        {
+                id,
+                users: [],
+                messages:[
+                        {
+                                username,
+                                date,
+                                message
+                        }
+                ]
+        }
+
+* games:
+
+        {
+                id,
+                title,
+                filters: [
+                        {
+                                title,
+                                options: []
+                        }
+                ]
+        }
