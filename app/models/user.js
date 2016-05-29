@@ -6,7 +6,7 @@ var UserSchema = new mongoose.Schema({
   email: String,
   country: String,
   age: Number,
-  Gender: String,
+  gender: String,
   language: String,
   description: String,
   gamelist: [{title:String}]

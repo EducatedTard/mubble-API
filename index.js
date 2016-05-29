@@ -2,7 +2,8 @@ var express = require('express'),
   config = require('./config/config'),
   glob = require('glob'),
   mongoose = require('mongoose'),
-  bodyParser = require('body-parser');
+  bodyParser = require('body-parser'),
+  ObjectId = require('mongoose').Types.ObjectId;
 
 var app = express();
 var bpjson = app.use(bodyParser.json());
@@ -37,6 +38,13 @@ app.get('/users', (req,res) => {
   mongoose.model('User').find(function(err, users){
     res.send(users);
   });
+});
+
+app.get('/users/:id', (req, res) => {
+  mongoose.model('User').find(
+    {"_id" : new ObjectId(req.params.id)}, (err, user) => {
+      res.send(user);
+    });
 });
 
 app.post('/users', (req,res) => {
