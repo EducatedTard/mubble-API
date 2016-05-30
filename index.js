@@ -136,6 +136,7 @@ app.get('/users/:id', (req, res) => {
 app.post('/users', (req,res) => {
   var p_name = req.body.name;
   var p_email = req.body.email;
+  var p_password = req.body.password;
   var p_country = req.body.country;
   var p_age = req.body.age;
   var p_gender = req.body.gender;
@@ -145,6 +146,7 @@ app.post('/users', (req,res) => {
     {
       name: p_name,
       email: p_email,
+      password: p_password,
       country: p_country,
       age: p_age,
       gender: p_gender,
