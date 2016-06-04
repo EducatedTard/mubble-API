@@ -38,4 +38,4 @@ var config = {
 };
 
 module.exports = config[env];
-module.exports.secret = 'devdacticIsAwesome';
+module.exports.secret = 'danielnestpasunartichot';
