@@ -54,11 +54,19 @@ app.post('/signup', function(req, res) {
       password: req.body.password
     });
     // save the user
-    newUser.save(function(err) {
-      if (err) {
-        return res.json({success: false, msg: 'email already exists.'});
+    User.findOne({
+      email: newUser.email
+    }, function(err, user){
+      if(!user){
+        newUser.save(function(err) {
+          if (err) {
+            return res.json({success: false, msg: 'An error occured while creating the user'});
+          }
+          res.json({success: true, msg: 'Successful created new user.'});
+        });
+      } else {
+          return res.json({success: false, msg: 'email already exists.'});
       }
-      res.json({success: true, msg: 'Successful created new user.'});
     });
   }
 });
